@@ -40,8 +40,10 @@ The code contains both implementation for Spatial Transformer Layer (named with 
           }
 	
 * In the above example, `output\_H` and `output\_W` is for indicating the output resolution, which can be differed from the resolution of input images.
+* Image sizes of both input and ouput images range from [-1,1]. Hence, -1< alpha\*x+ beta <1 when x is in (-1 1). Thus, when x alpha = 0.25, Loc\_Loss\_Layer param is set to 0.75
 * It is usually the case that Spatial Transformer Layer will be applied directly on input images to the networks. If this is the case, there is no need to backpropogate the loss to image pixels. One can set `to_compute_dU: false` in order to disable this useless backpropogation. The default value is `True`.
 * One may find it extremely useful to refer to caffe.proto to see my definition for layer parameters of Spatial Transformer Layer.
+
 
 ## Other Helper Layers or Utils
 
